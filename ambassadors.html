@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ambassadors</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Link to external CSS -->
+    <style>
+      body {
+        font-family: "Helvetica Neue", Arial, sans-serif; /* Changed font to a more modern look */
+        margin: 0;
+        padding: 0;
+        background-color: rgba(139, 0, 90, 0.89); /* Gradient background */
+        color: #333; /* Improved text color for readability */
+      }
+      header {
+        background: linear-gradient(
+          -45deg,
+          rgb(0, 0, 49),
+          rgba(12, 12, 159, 0.823),
+          skyblue
+        );
+      }
+
+      header .logo {
+        width: 100px;
+        height: 100px; /* Keep the height */
+        border-radius: 50%; /* Apply 50% border radius */
+      }
+
+      header .navbar ul {
+        display: flex;
+        gap: 40px;
+        list-style: none;
+      }
+
+      header .navbar ul li a {
+        font-family: cursive;
+        color: #fff;
+        text-decoration: none;
+        font-size: 30px;
+        padding: 10px 15px;
+        transition: color 0.3s ease;
+      }
+
+      header .navbar ul li a:hover {
+        color: #ff4b1f;
+      }
+
+      p {
+        text-align: center;
+        background-color: #ffffff5c;
+        border-radius: 15px;
+        margin-bottom: 40px;
+        height: auto;
+        color: white;
+      }
+      .card1 {
+        margin: 20px 20px;
+        color: black;
+      }
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px;
+      }
+
+      h2 {
+        margin: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        margin: 20px;
+        font-size: 2.5em; /* Increased font size for the heading */
+        color: #fff; /* Made the heading white for contrast */
+      }
+
+      /* Ambassador Cards */
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 20px 0;
+      }
+
+      .card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Added more shadow for depth */
+        margin: 10px;
+        padding: 20px; /* Increased padding for better presentation */
+        text-align: center;
+        width: 220px; /* Slightly increased width for better presentation */
+        transition: transform 0.3s;
+      }
+
+      .card img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+      }
+
+      /* Home Button */
+      .home-button {
+        display: block;
+        width: 150px; /* Fixed width for the button */
+        padding: 10px;
+        margin: 20px auto;
+        background-color: #ffd000; /* Green background for the button */
+        color: #000000;
+        text-align: center;
+        border: none;
+        border-radius: 5px;
+        font-size: 1em;
+        text-decoration: none; /* Remove underline */
+        transition: background-color 0.3s;
+        margin-bottom: 120px;
+      }
+
+      .home-button:hover {
+        background-color: #005bc2e9; /* Darker green on hover */
+      }
+
+      /* Timeline Slider */
+      .timeline {
+        position: relative;
+        max-width: 900px;
+        margin: auto;
+        overflow: hidden;
+        height: 250px; /* Increased height for better visibility */
+        border-top: 2px solid #fff; /* Added a top border */
+      }
+
+      .timeline-content {
+        display: flex;
+        transition: transform 0.3s ease;
+        position: absolute;
+        width: 500%; /* Adjust based on number of items */
+      }
+
+      .timeline-item {
+        width: 20%; /* 100% divided by 5 years */
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: center;
+        position: relative; /* Position for growth lines */
+        margin-bottom: 40px; /* Added margin for spacing below timeline */
+      }
+
+      .timeline-item h3 {
+        margin: 0; /* Removed margin for better positioning */
+        color: #fff; /* White text for headings */
+        position: absolute; /* Position below the line */
+        bottom: -25px; /* Position it below the timeline */
+        left: 50%; /* Center align text */
+        transform: translateX(-50%); /* Centering */
+      }
+
+      /* Growth Lines */
+      .timeline-item:before {
+        content: "";
+        position: absolute;
+        left: 50%; /* Centered lines */
+        top: 0;
+        height: 100%;
+        width: 2px; /* Line width */
+        background-color: rgba(255, 255, 255, 0.6); /* White line color */
+        transform: translateX(-50%); /* Centering */
+        z-index: -1; /* Send to back */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="container d-flex">
+        <a href="./index.html">
+          <img src="./images/logo.png" alt="Logo" class="logo"
+        /></a>
+        <nav class="navbar">
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <h1>Global Ambassadors</h1>
+
+      <div class="card-container">
+        <div class="card">
+          <img src="images/amb1.jpg" alt="Ambassador 1" />
+          <h2>Ambassador Nithya Arora</h2>
+          <p class="card1">Role: Global Health Advocate</p>
+        </div>
+        <div class="card">
+          <img src="images/amb2.jpg" alt="Ambassador 2" />
+          <h2>Ambassador Jacob William</h2>
+          <p class="card1">Role: Psychological Wellness Advocate</p>
+        </div>
+        <div class="card">
+          <img src="images/amb3.jpg" alt="Ambassador 3" />
+          <h2>Ambassador Benjamin Scott</h2>
+          <p class="card1">Role: Motivational Speaker</p>
+        </div>
+        <div class="card">
+          <img src="images/amb4.jpg" alt="Ambassador 4" />
+          <h2>Ambassador Rajesh Sharma</h2>
+          <p class="card1">Role: Mental Health Advocate</p>
+        </div>
+      </div>
+
+      <h1>Timeline of Progress</h1>
+      <div class="timeline">
+        <div class="timeline-content" id="timelineContent">
+          <div class="timeline-item">
+            <h3>2019</h3>
+            <p>5 Global Ambassadors joined.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>2020</h3>
+            <p>3 more ambassadors added.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>2021</h3>
+            <p>Ambassadors engaged in various campaigns.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>2022</h3>
+            <p>International outreach program launched.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>2023</h3>
+            <p>Expanded network of ambassadors.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="home-button"><a href="./index.html">Home</a></button>
+
+    <script>
+      let currentIndex = 0;
+      const intervalTime = 4000; // Time in milliseconds
+
+      function moveTimeline(direction) {
+        const timelineContent = document.getElementById("timelineContent");
+        const totalItems = document.querySelectorAll(".timeline-item").length;
+
+        currentIndex += direction;
+
+        if (currentIndex < 0) {
+          currentIndex = 0;
+        } else if (currentIndex >= totalItems - 1) {
+          currentIndex = totalItems - 1;
+        }
+
+        const offset = -currentIndex * (100 / totalItems);
+        timelineContent.style.transform = `translateX(${offset}%)`;
+      }
+
+      function startAutoMove() {
+        setInterval(() => {
+          moveTimeline(1); // Move to the next item
+          if (
+            currentIndex >=
+            document.querySelectorAll(".timeline-item").length - 1
+          ) {
+            currentIndex = -1; // Reset to -1 to cycle back to the start
+          }
+        }, intervalTime);
+      }
+
+      // Start the automatic movement when the page loads
+      window.onload = startAutoMove;
+    </script>
+  </body>
+</html>

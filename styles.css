@@ -1,0 +1,356 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif; /* You might consider a font like 'Roboto' or 'Open Sans' */
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #4a90e2; /* Change color on hover */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/*header*/
+header {
+  background: linear-gradient(-45deg, rgb(0, 0, 49), rgba(12, 12, 159, 0.823), skyblue);
+}
+
+header .logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+header .navbar {
+  padding: 20px 0; /* Add vertical padding */
+}
+
+header .navbar ul {
+  display: flex;
+  gap: 50px;
+  list-style: none;
+}
+
+header .navbar ul li a {
+  font-size: 25px;
+  font-family: cursive;
+  color: #fff;
+  text-decoration: none; /* Remove underline */
+  padding: 10px 15px; /* Add some padding */
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+header .btn {
+  background-color: #ffffffdb; /* Semi-transparent white background */
+  color: #000000; /* Black text color */
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 24px;
+  font-family: cursive;
+  border: 1px solid #000000; /* Add a border for definition */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition for multiple properties */
+}
+
+header .btn:hover {
+  transform: scale(1.1); /* Increase size slightly more on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+  background-color: #ff4b1f; /* Change background to an attention-grabbing color */
+  color: #ffffff; /* White text on hover */
+  border-color: #ff4b1f; /* Match the border to the background color */
+}
+
+/*hero*/
+
+.hero {
+  position: relative; /* Position relative for absolute positioning of the overlay */
+  background: url('/images/hero.png') center/cover no-repeat;
+  padding: 170px 20px;
+  text-align: center;
+  color: #000000;
+}
+
+.hero::before {
+  content: ""; /* Necessary for the pseudo-element */
+  position: absolute; /* Position it absolutely */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  right: 0; /* Cover full width */
+  bottom: 0; /* Cover full height */
+  z-index: 1; /* Position behind the text */
+}
+
+.hero h1 {
+  color: rgb(255, 255, 255);
+  font-family: 'Playfair Display', serif; /* Apply heading font */
+  font-size: 55px;
+  margin-bottom: 20px;
+  text-shadow: 5px 5px 5px black; /* Optional: Add text shadow for contrast */
+}
+
+.hero p {
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  text-shadow: 5px 5px 5px black;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+/*services*/
+.services {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #333; /* Darker color for better readability */
+  font-family: 'Arial', sans-serif; /* Modern font style */
+}
+
+.services-grid {
+  display: flex;
+  justify-content: space-between; /* Improved spacing */
+  flex-wrap: wrap; /* Wrap for responsiveness */
+}
+
+.service-box {
+  background: linear-gradient(135deg, #4a90e2, #d94d4d); /* Gradient background */
+  padding: 30px;
+  border-radius: 10px;
+  width: 30%;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  min-height: 250px; /* Ensure boxes have a minimum height */
+}
+
+.service-box:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.service-box .icon {
+  font-size: 48px;
+  color: #fff; /* Icon color for contrast */
+  margin-bottom: 20px;
+}
+
+.service-box h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #fff; /* White text for better contrast */
+  font-family: 'Arial', sans-serif; /* Consistent font style */
+}
+
+.service-box p {
+  font-size: 16px;
+  color: #fff; /* White text for description */
+  margin: 0; /* Remove margin for consistency */
+}
+
+/* Track Progress */
+.track-progress {
+  padding: 60px 20px;
+  display: flex;
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-radius: 10px; /* Slightly rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  align-items: center; /* Vertically center content */
+}
+
+.track-content {
+  width: 50%;
+  padding: 20px; /* Added padding for better spacing */
+}
+
+.track-content h2 {
+  font-size: 32px; /* Larger font size for headings */
+  color: black; /* Blue color for headings */
+  margin-bottom: 15px; /* Space between heading and paragraph */
+}
+
+.track-content p {
+  font-size: 18px; /* Consistent font size for paragraphs */
+  color: #555; /* Dark gray for readability */
+  margin-bottom: 20px; /* Space after paragraph */
+}
+
+.track-content button {
+  border: none; /* Remove default button border */
+  background: linear-gradient(90deg, #ff4b1f, #ff416c); /* Gradient background */
+  color: white; /* White text for contrast */
+  padding: 12px 25px; /* Padding for the button */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.track-content button:hover {
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+.track-image {
+  width: 45%;
+  display: flex;
+  justify-content: center; /* Center the image */
+}
+
+.track-image img {
+  width: 80%; /* Responsive width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Match border radius with the section */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+}
+
+/* Testimonials Section */
+.testimonials {
+  background-color: #f9f9f9; /* Light gray background */
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 36px; /* Larger font size for the section title */
+  color: #000000; /* Blue color for heading */
+  margin-bottom: 40px; /* Space below the title */
+  font-family: 'Arial', sans-serif;
+}
+
+.testimonials-grid {
+  display: flex;
+  justify-content: space-evenly; /* Evenly space items */
+  align-items: stretch; /* Stretch items to have equal height */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 30px; /* Gap between the testimonial boxes */
+}
+
+.testimonial-box {
+  background-color: #ffffff; /* White background for testimonials */
+  padding: 30px;
+  border-radius: 15px; /* Smoother, rounded corners */
+  width: 100%; /* Full width on mobile screens */
+  max-width: 400px; /* Set a max width for consistency */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow for more depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center content */
+  text-align: center; /* Center text */
+}
+
+.testimonial-box:hover {
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.testimonial-box img {
+  height: 100px; /* Larger image for prominence */
+  width: auto;
+  border-radius: 10%; /* Circular image for a more polished look */
+  margin-bottom: 20px; /* Space between image and content */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Add shadow to the image for depth */
+}
+
+.testimonial-box p {
+  font-size: 16px; /* Font size for testimonial text */
+  color: #555; /* Dark gray for readability */
+  margin-bottom: 20px; /* More space after the paragraph */
+  line-height: 1.6; /* Improve text readability */
+  font-family: 'Open Sans', sans-serif; /* Consistent font */
+}
+
+.testimonial-box .author {
+  font-weight: bold; /* Bold for author names */
+  color: #ff4b1f; /* Red color for author names */
+  font-size: 18px; /* Slightly larger font for emphasis */
+  font-family: 'Arial', sans-serif;
+}
+
+.testimonial-box .position {
+  font-size: 14px; /* Smaller font for position */
+  color: #888; /* Light gray for the position text */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .testimonials-grid {
+    flex-direction: column; /* Stack boxes vertically on smaller screens */
+    gap: 20px; /* Reduce gap between boxes */
+  }
+
+  .testimonial-box {
+    width: 100%; /* Full width on mobile */
+  }
+}
+/* Footer Section */
+.footer{
+  background: linear-gradient(-45deg, rgb(0, 0, 49), rgba(12, 12, 159, 0.823), skyblue);
+}
+  .footer-content {
+      display: flex; /* Use flexbox for layout */
+      justify-content: space-between; /* Space between logo and links */
+      align-items: center; /* Center align items vertically */
+      max-width: 1200px; /* Maximum width for the container */
+      margin: 0 auto; /* Center the container */
+  }
+
+  .footer-logo img {
+      max-width: 100px; /* Set a maximum width for the logo */
+      border-radius: 50%;
+  }
+
+  .footer-links ul {
+      display: flex; /* Display links in a row */
+      gap: 30px; /* Space between links */
+      list-style: none; /* Remove bullet points */
+      padding: 0; /* Remove padding */
+      margin: 0; /* Remove margin */
+  }
+
+  .footer-links ul li a {
+      color: rgb(255, 255, 255); /* White text for links */
+      text-decoration: none; /* Remove underline from links */
+      font-size: 24px; /* Set font size for links */
+      font-family: cursive;
+  }
+
+  .footer-bottom {
+      text-align: center; /* Centered text */
+      margin-top: 20px; /* Margin above bottom text */
+      font-size: 14px; /* Smaller font size for bottom text */
+      opacity: 0.7; /* Slightly faded text */
+  }

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breathing Timer</title>
+    <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(
+          -45deg,
+          rgb(0, 0, 49),
+          rgba(12, 12, 159, 0.823),
+          skyblue
+        );
+        font-family: "Arial", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: white;
+      }
+
+      .timer-container {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .outer-circle {
+        margin-top: 30px;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        border: 8px solid white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 5s ease-in-out; /* Smooth transition for 5 seconds */
+      }
+
+      .inner-circle {
+        width: 140px;
+        height: 140px;
+        background-color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        color: #4a90e2;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      .breath-text {
+        margin-top: 70px;
+        font-size: 24px;
+      }
+
+      .start-btn,
+      .stop-btn,
+      .reset-btn {
+        margin-top: 30px;
+        padding: 12px 24px;
+        background-color: #4a90e2;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .start-btn:hover,
+      .stop-btn:hover,
+      .reset-btn:hover {
+        background-color: #357ab9;
+        transform: translateY(-3px);
+      }
+
+      .elapsed-time {
+        margin-top: 20px;
+        font-size: 20px;
+      }
+
+      a {
+        text-decoration: none;
+        margin: 40px;
+      }
+
+      h2 {
+        padding: 12px 24px;
+        background-color: #4a90e2;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="timer-container">
+      <div class="outer-circle" id="outerCircle">
+        <div class="inner-circle" id="timer">5</div>
+      </div>
+      <div class="breath-text" id="breathText">Breathe In</div>
+
+      <button class="start-btn" onclick="startBreathing()">
+        Start Breathing
+      </button>
+      <button class="stop-btn" onclick="stopBreathing()" style="display: none">
+        Stop Breathing
+      </button>
+      <button
+        class="reset-btn"
+        onclick="resetBreathing()"
+        style="display: none"
+      >
+        Reset Timer
+      </button>
+
+      <div class="elapsed-time" id="elapsedTime">Total Time: 0s</div>
+      <a href="./index.html"><h2>Home</h2></a>
+    </div>
+
+    <script>
+      let phase = "breatheIn"; // Tracks current phase
+      let time = 5; // Start with 5 seconds
+      let totalTime = 0;
+      let breathingInterval;
+      let elapsedInterval;
+
+      function startBreathing() {
+        time = 5; // Reset time to 5 seconds
+        phase = "breatheIn"; // Start with breatheIn phase
+        clearInterval(breathingInterval);
+        clearInterval(elapsedInterval);
+        breathingInterval = setInterval(breathingCycle, 1000);
+        elapsedInterval = setInterval(updateElapsedTime, 1000); // Update elapsed time every second
+
+        document.querySelector(".start-btn").style.display = "none";
+        document.querySelector(".stop-btn").style.display = "inline-block";
+        document.querySelector(".reset-btn").style.display = "inline-block";
+      }
+
+      function stopBreathing() {
+        clearInterval(breathingInterval);
+        clearInterval(elapsedInterval);
+        document.querySelector(".start-btn").style.display = "inline-block";
+        document.querySelector(".stop-btn").style.display = "none";
+      }
+
+      function resetBreathing() {
+        clearInterval(breathingInterval);
+        clearInterval(elapsedInterval);
+
+        // Reset the timer and UI elements
+        totalTime = 0;
+        time = 5;
+        phase = "breatheIn";
+        document.getElementById("timer").innerText = time;
+        document.getElementById("elapsedTime").innerText = "Total Time: 0s";
+        document.getElementById("breathText").innerText = "Breathe In";
+        document.getElementById("outerCircle").style.transform = "scale(1)"; // Reset circle to original size
+        document.querySelector(".inner-circle").style.backgroundColor = "white";
+
+        // Update button visibility
+        document.querySelector(".start-btn").style.display = "inline-block";
+        document.querySelector(".stop-btn").style.display = "none";
+        document.querySelector(".reset-btn").style.display = "none";
+      }
+
+      function breathingCycle() {
+        const timerElement = document.getElementById("timer");
+        const outerCircle = document.getElementById("outerCircle");
+        const breathText = document.getElementById("breathText");
+        const innerCircle = document.querySelector(".inner-circle");
+
+        if (time > 0) {
+          timerElement.innerText = time;
+          time--;
+        } else {
+          // Handle only two phases: Breathe In and Breathe Out
+          if (phase === "breatheIn") {
+            breathText.innerText = "Breathe Out";
+            outerCircle.style.transform = "scale(1.5)"; // Expand the circle during Breathe In
+            phase = "breatheOut";
+            time = 5; // Reset time for Breathe Out phase
+          } else if (phase === "breatheOut") {
+            breathText.innerText = "Breathe In";
+            outerCircle.style.transform = "scale(1)"; // Shrink the circle back during Breathe Out
+            phase = "breatheIn";
+            time = 5; // Reset for Breathe In
+          }
+        }
+      }
+
+      function updateElapsedTime() {
+        totalTime++; // Increment total time by 1 second
+        document.getElementById("elapsedTime").innerText =
+          "Total Time: " + totalTime + "s";
+      }
+    </script>
+  </body>
+</html>
