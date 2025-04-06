@@ -32,7 +32,6 @@
 
 ## 📸 Screenshots
 
-> _Coming soon!_ (Add images from your `/images` folder once hosted or locally embedded.)
 
 ---
 
